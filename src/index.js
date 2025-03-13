@@ -21,6 +21,12 @@ function addTask(taskText) {
   const li = document.createElement("li"); 
   li.textContent = taskText; 
 
+  const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "X";
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.addEventListener("click", () => li.remove());
+  
+
 
       
 
