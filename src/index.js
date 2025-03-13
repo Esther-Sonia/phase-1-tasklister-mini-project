@@ -25,10 +25,9 @@ function addTask(taskText) {
         deleteBtn.textContent = "X";
         deleteBtn.classList.add("delete-btn");
         deleteBtn.addEventListener("click", () => li.remove());
+        
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li);
+    }
   
-
-
-      
-
-
-}});
+});
