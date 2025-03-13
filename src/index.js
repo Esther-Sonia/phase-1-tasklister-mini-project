@@ -3,4 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskInput = document.querySelector("#new-task-description");
   const taskList = document.querySelector("#tasks");
 
+  form.addEventListener("submit", handleFormSubmit);
+      
+
+
 });
