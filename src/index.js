@@ -17,8 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     addTask(taskText);
     taskInput.value = ""; 
 }
+function addTask(taskText) {
+  const li = document.createElement("li"); 
+  li.textContent = taskText; 
+
 
       
 
 
-});
+}});
