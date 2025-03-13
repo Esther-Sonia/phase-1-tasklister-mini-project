@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addTask(taskText);
     taskInput.value = ""; 
 }
-function addTask(taskText) {
+function addTask(taskText,priority) {
   const li = document.createElement("li"); 
   li.textContent = taskText; 
 
@@ -25,9 +25,25 @@ function addTask(taskText) {
         deleteBtn.textContent = "X";
         deleteBtn.classList.add("delete-btn");
         deleteBtn.addEventListener("click", () => li.remove());
+
+  const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.classList.add("edit-btn");
+        editBtn.addEventListener("click", () => editTask(li, taskText));      
         
+        li.appendChild(editBtn);
         li.appendChild(deleteBtn);
         taskList.appendChild(li);
-    }
+
+        taskList.addEventListener("click", (event) => {
+          if (event.target.classList.contains("edit-btn")) {
+            const li = event.target.parentElement;
+            const newText = prompt("Edit your task:", li.firstChild.textContent);
+            if (newText !== null && newText.trim() !== "") {
+              li.firstChild.textContent = newText.trim();
+            }
+          }
+    
+  });
   
-});
+}});
