@@ -13,12 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const priority = prioritySelect.value;
     
     if (!taskText) {
-        alert("Fill in the task field!");
+        alert("Fill in the task description field!");
         return;
     }
 
+    if (!priority) {
+      alert("Fill in the priority field!");
+      return;
+  }
+
+
     addTask(taskText, priority);
     taskInput.value = ""; 
+    prioritySelect.value = "";
   }
 
   function addTask(taskText, priority) {
@@ -28,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     taskSpan.textContent = taskText;
 
     const prioritySpan = document.createElement("em");
-    prioritySpan.textContent = ` ${priority} Priority`;
-    prioritySpan.classList.add(priority.toLowerCase()); 
+prioritySpan.textContent = `${priority} Priority`;
+prioritySpan.className = priority.toLowerCase(); 
 
     li.appendChild(taskSpan);
-    li.appendChild(document.createTextNode(" - ")); 
+    li.appendChild(document.createTextNode(" ~ ")); 
     li.appendChild(prioritySpan); 
 
     const deleteBtn = document.createElement("button");
@@ -44,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
     editBtn.textContent = "Edit";
     editBtn.classList.add("edit-btn");
     editBtn.addEventListener("click", () => {
-      const newText = prompt("Edit your task:", taskSpan.textContent);
-      if (newText !== null && newText.trim() !== "") {
-        taskSpan.textContent = newText.trim(); 
-      }
+      const newText = prompt("Edit your task:", li.firstChild.textContent);
+      if (newText) li.firstChild.textContent = newText;
     });
+    
 
     li.appendChild(editBtn);
     li.appendChild(deleteBtn);
+    
     taskList.appendChild(li);
   }
 });
