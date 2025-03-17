@@ -38,5 +38,27 @@ button {
 .delete-btn {
   margin-left: 10px; 
   padding: 2px 5px;
-  cursor: pointer; 
+  cursor: pointer;
 }
+.edit-btn {
+  margin-left: 10px; 
+  padding: 2px 5px;
+  cursor: pointer; 
+  color: rgb(16, 19, 19);
+
+}
+.high {
+  color: red;
+  font-weight: bold;
+}
+
+.medium {
+  color: orange;
+  font-weight: bold;
+}
+
+.low {
+  color: green;
+  font-weight: bold;
+}
+
